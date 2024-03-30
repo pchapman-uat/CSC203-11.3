@@ -1,3 +1,4 @@
+import java.awt.Color;
 import javax.swing.JLabel;
 
 public class Cat {
@@ -15,21 +16,53 @@ public class Cat {
         this.energyLabel = energy;
         this.happinessLabel = happiness;
     }
+
+    private void setColor(JLabel label, int value){
+        if(value > 50){
+            label.setForeground(Color.GREEN);
+        }else if(value <= 50){
+            label.setForeground(Color.YELLOW);
+        } else{
+            label.setForeground(Color.RED);
+        }
+    }
+
+    private Integer capValue(int value, Integer max, Integer min){
+        max = max != null ? max : 100;
+        min = min != null ? min : 0;
+        if(value > max){
+            value = max;
+        } else if(value < min){
+            value = min;
+        }
+        return value;
+        
+    }
     private void updateLables(){
+
+        this.setColor(energyLabel, energy);
+        this.setColor(hungerLabel, hunger);
+        this.setColor(happinessLabel, happiness);
+
+        this.energy = this.capValue(energy, null, null);
+        this.hunger = this.capValue(hunger, null, null);
+        this.happiness = this.capValue(happiness, null, null);
+        
         this.energyLabel.setText("Energy: " + this.energy);
         this.hungerLabel.setText("Hunger: " + this.hunger);
         this.happinessLabel.setText("Happiness: " + this.happiness);
     }
     public void feed() {
         System.out.println("Feeding the cat");
-        this.hunger = 100;
-        updateLables();
+        this.hunger += 10;
+        this.energy += 10;
+        this.updateLables();
     }
     public void play(JLabel hunger) {
         System.out.println("Playing with the cat");
         this.hunger -= 5;
         this.energy -= 5;
         this.happiness += 10;
-        updateLables();
+        this.updateLables();
     }
 }

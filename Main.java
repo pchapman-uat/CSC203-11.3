@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Image;
 
@@ -10,12 +11,17 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(300, 300);
         frame.setVisible(true);
+        frame.setBackground(Color.DARK_GRAY);
 
-        JLabel label = new JLabel("Pet Simulator");
-        JLabel label3 = new JLabel("CSC203 11.3 | UAT");
+        JLabel title = new JLabel("Pet Simulator");
+        JLabel subtitle = new JLabel("CSC203 11.3 | UAT");
         
-        frame.add(label);
-        frame.add(label3);
+        JPanel header = new JPanel();
+        header.setSize(300, 50);
+        header.add(title);
+        header.add(subtitle);
+        header.setVisible(true);
+        frame.add(header);
         frame.setLayout(new FlowLayout());
 
         JLabel cat = new JLabel();
@@ -26,14 +32,17 @@ public class Main {
         frame.add(cat);
 
   
-       
+        JPanel stats = new JPanel();
         JLabel hunger = new JLabel("Hunger: " + 100);
         JLabel energy = new JLabel("Energy: " + 100);
         JLabel happiness = new JLabel("Happiness" + 100);
+        stats.setBackground(Color.GRAY);
         Cat catObj = new Cat(hunger, energy, happiness);
-        frame.add(hunger);
-        frame.add(energy);
-        frame.add(happiness);
+        stats.add(hunger);
+        stats.add(energy);
+        stats.add(happiness);
+
+        frame.add(stats);
         JButton feedButton = new JButton("Feed");
         feedButton.addActionListener(e -> catObj.feed());
         JButton playButton = new JButton("Play");
