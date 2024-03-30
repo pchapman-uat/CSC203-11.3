@@ -94,19 +94,24 @@ public class Main {
         stats.setLayout(new FlowLayout());
         frame.add(stats);
 
-        // Create buttons for Feeding, Playing, and Reseting
+        // Create buttons for Feeding, Playing, Groom and Reseting
         // Add action listener will runt the function when the button is clicked
         JButton feedButton = new JButton("Feed");
         feedButton.addActionListener(e -> catObj.feed());
         JButton playButton = new JButton("Play");
         playButton.addActionListener(e -> catObj.play(hunger));
+        JButton groomButton = new JButton("Groom");
+        groomButton.addActionListener(e -> catObj.groom());
         JButton restartButton = new JButton("Restart");
         restartButton.addActionListener(e -> catObj.restart());
+
 
         // Add the buttons to the frame
         frame.add(playButton);
         frame.add(feedButton);
+        frame.add(groomButton);
         frame.add(restartButton);
+
         // Run the looping function for the cat
         catObj.loop();
     }

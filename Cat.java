@@ -90,6 +90,18 @@ public class Cat {
         this.updateLables();
     }
 
+    // Groom the cat
+    public void groom(){
+        System.out.println("Grooming the cat");
+        // Subtract 3 from the hunger and energy
+        // Add 15 to the happiness
+        this.hunger -= 3;
+        this.energy -= 3;
+        this.happiness += 15;
+        // Update the labels
+        this.updateLables();
+    }
+
     // Reset the stats of the cat
     public void restart(){
         // Set all stat values to 100
