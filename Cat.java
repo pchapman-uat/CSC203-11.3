@@ -29,9 +29,11 @@ public class Cat {
     private void setColor(JLabel label, int value){
         if(value > 50){
             label.setForeground(Color.GREEN);
-        }else if(value <= 50){
+        }else if(value > 25){
             label.setForeground(Color.YELLOW);
-        } else{
+        } else if(value > 0){
+            label.setForeground(Color.ORANGE);
+        } else {
             label.setForeground(Color.RED);
         }
     }
