@@ -9,10 +9,9 @@ public class Main {
 
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 300);
+        frame.setSize(300, 350);
         frame.setVisible(true);
         frame.setBackground(Color.DARK_GRAY);
-
         JLabel title = new JLabel("Pet Simulator");
         JLabel subtitle = new JLabel("CSC203 11.3 | UAT");
         
@@ -49,5 +48,7 @@ public class Main {
         playButton.addActionListener(e -> catObj.play(hunger));
         frame.add(playButton);
         frame.add(feedButton);
+
+        catObj.loop();
     }
 }

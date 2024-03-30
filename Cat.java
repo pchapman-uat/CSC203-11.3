@@ -47,7 +47,7 @@ public class Cat {
         this.energy = this.capValue(energy, null, null);
         this.hunger = this.capValue(hunger, null, null);
         this.happiness = this.capValue(happiness, null, null);
-        
+
         this.energyLabel.setText("Energy: " + this.energy);
         this.hungerLabel.setText("Hunger: " + this.hunger);
         this.happinessLabel.setText("Happiness: " + this.happiness);
@@ -64,5 +64,20 @@ public class Cat {
         this.energy -= 5;
         this.happiness += 10;
         this.updateLables();
+    }
+
+    public void loop(){
+        while(true){
+            try {
+                Thread.sleep(1000);
+
+                if(Math.random() > 0.5) this.hunger -= 1;
+                if(Math.random() > 0.5) this.energy -= 1;
+                if(Math.random() > 0.5) this.happiness -= 1;
+                this.updateLables();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
