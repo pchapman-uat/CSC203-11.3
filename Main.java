@@ -7,22 +7,36 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
 
+        int frameWidth = 250;
+        int frameHeight = 400;
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(300, 350);
+        frame.setSize(frameWidth, frameHeight);
         frame.setVisible(true);
         frame.setBackground(Color.DARK_GRAY);
         JLabel title = new JLabel("Pet Simulator");
         JLabel subtitle = new JLabel("CSC203 11.3 | UAT");
         
+
         JPanel header = new JPanel();
-        header.setSize(300, 50);
+        header.setSize(frameWidth, 50);
         header.add(title);
         header.add(subtitle);
         header.setVisible(true);
         frame.add(header);
         frame.setLayout(new FlowLayout());
 
+
+        JPanel name = new JPanel();
+        name.setSize(frameWidth, 50);
+        name.setBackground(Color.GRAY);
+        name.setLayout(new FlowLayout());
+        JTextArea textArea = new JTextArea();
+        textArea.setSize(frameWidth, 50);
+        textArea.setText("Enter the cat's name");
+        name.add(textArea);
+
+        frame.add(name);
         JLabel cat = new JLabel();
         ImageIcon catIcon = new ImageIcon("assets/cat.jpg");
         Image catImage = catIcon.getImage();
@@ -40,7 +54,8 @@ public class Main {
         stats.add(hunger);
         stats.add(energy);
         stats.add(happiness);
-
+        stats.setSize(frameWidth, 100);
+        stats.setLayout(new FlowLayout());
         frame.add(stats);
         JButton feedButton = new JButton("Feed");
         feedButton.addActionListener(e -> catObj.feed());
