@@ -66,6 +66,13 @@ public class Cat {
         this.updateLables();
     }
 
+    public void restart(){
+        this.hunger = 100;
+        this.energy = 100;
+        this.happiness = 100;
+        this.updateLables();
+    }
+
     public void loop(){
         while(true){
             try {

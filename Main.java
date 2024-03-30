@@ -49,6 +49,9 @@ public class Main {
         frame.add(playButton);
         frame.add(feedButton);
 
+        JButton restartButton = new JButton("Restart");
+        restartButton.addActionListener(e -> catObj.restart());
+        frame.add(restartButton);
         catObj.loop();
     }
 }
